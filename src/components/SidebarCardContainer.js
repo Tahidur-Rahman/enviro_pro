@@ -10,8 +10,8 @@ const SidebarCardContainer = (props) => {
             alignItems="center"
             // bg={"#ddd"}
             h="50%"
-            borderBottomColor={"#ddd"}
-            borderBottomWidth={"1px"}
+            // borderBottomColor={"#ddd"}
+            // borderBottomWidth={"1px"}
         >
             {props.children}
         </Box>
