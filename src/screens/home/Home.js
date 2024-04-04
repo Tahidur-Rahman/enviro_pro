@@ -4,6 +4,7 @@ import { Box, Button, Image, Text, useDisclosure } from "@chakra-ui/react";
 import PersonCard from "../../components/PersonCard";
 import leafSvg from "../../assets/images/leaf.svg";
 import LeafContainerBox from "../../components/LeafContainerBox";
+import SidebarCardContainer from "../../components/SidebarCardContainer";
 
 const Home = () => {
     const [showContent, setShowContent] = useState(true);
@@ -15,31 +16,21 @@ const Home = () => {
         <Box h="100vh" display="flex" w="100%">
             {/* left container */}
 
-            <Box
-                w="30%"
-                h="100%"
-                className={`${showContent ? "fade-in" : "fade-out"}`}
-            >
-                <Box
-                    w="100%"
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                    // bg={"purple"}
-                    h="50%"
-                >
-                    <PersonCard />
-                </Box>
-                <Box
-                    w="100%"
-                    // bg={"#ddd"}
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                    h="50%"
-                >
-                    <PersonCard />
-                </Box>
+            <Box flex={1} className={`${showContent ? "fade-in" : "fade-out"}`}>
+                <SidebarCardContainer
+                    children={
+                        <>
+                            <PersonCard />
+                        </>
+                    }
+                />
+                <SidebarCardContainer
+                    children={
+                        <>
+                            <PersonCard />
+                        </>
+                    }
+                />
             </Box>
 
             {/* middle container */}
@@ -122,31 +113,21 @@ const Home = () => {
             </Box>
 
             {/* right container */}
-            <Box
-                w="30%"
-                h="100%"
-                className={`${showContent ? "fade-in" : "fade-out"}`}
-            >
-                <Box
-                    w="100%"
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                    // bg={"#ddd"}
-                    h="50%"
-                >
-                    <PersonCard />
-                </Box>
-                <Box
-                    w="100%"
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                    // bg={"purple"}
-                    h="50%"
-                >
-                    <PersonCard />
-                </Box>
+            <Box flex={1} className={`${showContent ? "fade-in" : "fade-out"}`}>
+                <SidebarCardContainer
+                    children={
+                        <>
+                            <PersonCard />
+                        </>
+                    }
+                />
+                <SidebarCardContainer
+                    children={
+                        <>
+                            <PersonCard />
+                        </>
+                    }
+                />
             </Box>
         </Box>
     );
