@@ -1,15 +1,23 @@
 import React, { useState } from "react";
 import "./home.css";
-import { Box, Button, Image, Text, useDisclosure } from "@chakra-ui/react";
+import { Box, Popover, List,ListItem, PopoverContent, PopoverArrow, PopoverHeader, PopoverBody} from "@chakra-ui/react";
 import PersonCard from "../../components/PersonCard";
 import leafSvg from "../../assets/images/leaf.svg";
 import LeafContainerBox from "../../components/LeafContainerBox";
 import SidebarCardContainer from "../../components/SidebarCardContainer";
+import Health from "../../components/Health";
 
 const Home = () => {
     const [showContent, setShowContent] = useState(true);
     const [activeTab, setActiveTab] = useState(1);
-
+    const [isOpen, setIsOpen] = useState(false);
+    const handleOpen = () => {
+        setIsOpen(true);
+      };
+    
+      const handleClose = () => {
+        setIsOpen(false);
+      };
     const activeLeftBoxBgColor = "#90D26D";
 
     const onClickLeftBox = (val) => {
@@ -19,7 +27,23 @@ const Home = () => {
     return (
         <Box h="100vh" display="flex" w="100%">
             {/* left container */}
-
+            <Popover isOpen={isOpen} onClose={handleClose}>
+      <PopoverContent style={{top:'75vh',left:'35vw',width:"30vw"}}>
+        <PopoverArrow />
+        <PopoverHeader>Brown Blight</PopoverHeader>
+        <PopoverBody><List spacing={2}>
+  <ListItem>
+    ➡ Type : Fungus
+  </ListItem>
+  <ListItem>
+    ➡ A area : 5.6 lower part, 7,8 part
+  </ListItem>
+  <ListItem>
+    ➡ Medicine : Prepiconazole, Tabueonazole
+  </ListItem>
+</List></PopoverBody>
+      </PopoverContent>
+    </Popover>
             <Box flex={1} className={`${showContent ? "fade-in" : "fade-out"}`}>
                 <SidebarCardContainer
                     children={
@@ -31,7 +55,7 @@ const Home = () => {
                 <SidebarCardContainer
                     children={
                         <>
-                            <PersonCard />
+                            <Health />
                         </>
                     }
                 />
@@ -40,13 +64,13 @@ const Home = () => {
             {/* middle container */}
 
             <Box
-                w="40%"
+                w="25%"
                 h="100%"
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
                 bg={"#fff"}
-                overflow={"hidden"}
+                overflow={"hidden"} onMouseEnter={handleOpen} onMouseLeave={handleClose}
             >
                 <Box
                     w="300px"
