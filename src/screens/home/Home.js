@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import "./home.css";
-import { Box, Popover, List,ListItem, PopoverContent, PopoverArrow, PopoverHeader, PopoverBody} from "@chakra-ui/react";
+import { Box, Popover, List,ListItem, PopoverArrow, PopoverHeader, PopoverBody} from "@chakra-ui/react";
 import PersonCard from "../../components/PersonCard";
 import leafSvg from "../../assets/images/leaf.svg";
 import LeafContainerBox from "../../components/LeafContainerBox";
 import SidebarCardContainer from "../../components/SidebarCardContainer";
 import Health from "../../components/Health";
+import PopOverContent from "./HoverPopover";
+import Review from "../../components/Review";
+import Album from "../../components/Album";
+import { DATA } from "../../assets/Data";
 
 const Home = () => {
     const [showContent, setShowContent] = useState(true);
@@ -13,7 +17,8 @@ const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
     const handleOpen = () => {
         setIsOpen(true);
-      };
+    };
+    console.log(DATA,activeTab,'DATA[activeTab]?.review')
     
       const handleClose = () => {
         setIsOpen(false);
@@ -22,40 +27,24 @@ const Home = () => {
 
     const onClickLeftBox = (val) => {
         setActiveTab(val);
-        setShowContent(!showContent);
+        setShowContent(showContent);
     };
     return (
         <Box h="100vh" display="flex" w="100%">
+          <PopOverContent isOpen={isOpen} handleClose={handleClose}/>
             {/* left container */}
-            <Popover isOpen={isOpen} onClose={handleClose}>
-      <PopoverContent style={{top:'75vh',left:'35vw',width:"30vw"}}>
-        <PopoverArrow />
-        <PopoverHeader>Brown Blight</PopoverHeader>
-        <PopoverBody><List spacing={2}>
-  <ListItem>
-    ➡ Type : Fungus
-  </ListItem>
-  <ListItem>
-    ➡ A area : 5.6 lower part, 7,8 part
-  </ListItem>
-  <ListItem>
-    ➡ Medicine : Prepiconazole, Tabueonazole
-  </ListItem>
-</List></PopoverBody>
-      </PopoverContent>
-    </Popover>
             <Box flex={1} className={`${showContent ? "fade-in" : "fade-out"}`}>
                 <SidebarCardContainer
                     children={
                         <>
-                            <PersonCard />
+                            <Album photos={DATA[activeTab]?.photos} />
                         </>
                     }
                 />
                 <SidebarCardContainer
                     children={
                         <>
-                            <Health />
+                            <Health health={DATA[activeTab]?.health} />
                         </>
                     }
                 />
@@ -237,7 +226,7 @@ const Home = () => {
                 <SidebarCardContainer
                     children={
                         <>
-                            <PersonCard />
+                            <Review reviews={DATA[activeTab]?.review} />
                         </>
                     }
                 />

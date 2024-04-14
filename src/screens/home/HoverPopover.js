@@ -1,32 +1,26 @@
-import { Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverCloseButton, PopoverHeader, PopoverBody } from "@chakra-ui/react";
+import { Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverCloseButton, PopoverHeader, PopoverBody, ListItem, List } from "@chakra-ui/react";
 import { useState } from "react";
 
-function HoverPopover() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
+function PopOverContent({isOpen,handleClose}) {
   return (
     <Popover isOpen={isOpen} onClose={handleClose}>
-      <PopoverTrigger>
-        <div onMouseEnter={handleOpen} onMouseLeave={handleClose}>
-          Hover over me
-        </div>
-      </PopoverTrigger>
-      <PopoverContent>
+       <PopoverContent style={{top:'75vh',left:'35vw',width:"30vw"}}>
         <PopoverArrow />
-        <PopoverCloseButton />
-        <PopoverHeader>Popover Header</PopoverHeader>
-        <PopoverBody>This is the content of the popover.</PopoverBody>
+        <PopoverHeader>Brown Blight</PopoverHeader>
+        <PopoverBody><List spacing={2}>
+  <ListItem>
+    ➡ Type : Fungus
+  </ListItem>
+  <ListItem>
+    ➡ A area : 5.6 lower part, 7,8 part
+  </ListItem>
+  <ListItem>
+    ➡ Medicine : Prepiconazole, Tabueonazole
+  </ListItem>
+</List></PopoverBody>
       </PopoverContent>
     </Popover>
   );
 }
 
-export default HoverPopover;
+export default PopOverContent;
