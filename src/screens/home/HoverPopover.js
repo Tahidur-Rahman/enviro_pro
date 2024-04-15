@@ -4,7 +4,7 @@ import { useState } from "react";
 function PopOverContent({isOpen,handleClose}) {
   return (
     <Popover isOpen={isOpen} onClose={handleClose}>
-       <PopoverContent style={{top:'75vh',left:'35vw',width:"30vw"}}>
+       <PopoverContent style={{top:'78vh',left:'35vw',width:"30vw"}}>
         <PopoverArrow />
         <PopoverHeader>Brown Blight</PopoverHeader>
         <PopoverBody><List spacing={2}>

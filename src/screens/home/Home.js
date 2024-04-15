@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./home.css";
-import { Box, Popover, List,ListItem, PopoverArrow, PopoverHeader, PopoverBody} from "@chakra-ui/react";
+import { Box, Popover, List,ListItem, PopoverArrow, PopoverHeader, PopoverBody, Text} from "@chakra-ui/react";
 import PersonCard from "../../components/PersonCard";
 import leafSvg from "../../assets/images/leaf.svg";
 import LeafContainerBox from "../../components/LeafContainerBox";
@@ -58,9 +58,11 @@ const Home = () => {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
+                flexDirection="column"
                 bg={"#fff"}
                 overflow={"hidden"} onMouseEnter={handleOpen} onMouseLeave={handleClose}
             >
+                <Text textAlign="center" fontWeight="700" mb={5}>Tea Plant Health Analysis: Leaf Disease Segmentation</Text>
                 <Box
                     w="300px"
                     h={"80%"}
