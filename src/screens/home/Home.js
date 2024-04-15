@@ -23,7 +23,7 @@ const Home = () => {
       const handleClose = () => {
         setIsOpen(false);
       };
-    const activeLeftBoxBgColor = "#90D26D";
+    const activeLeftBoxBgColor = "";
 
     const onClickLeftBox = (val) => {
         setActiveTab(val);
@@ -93,7 +93,7 @@ const Home = () => {
                                 pr="20px"
                                 pb="20px"
                                 borderTopLeftRadius="100px"
-                                bg={activeTab == 1 ? "#90D26D" : ""}
+                                bg={activeTab == 1 ? activeLeftBoxBgColor : ""}
                                 isActive={activeTab == 1 ? true : false}
                             />
                             <LeafContainerBox

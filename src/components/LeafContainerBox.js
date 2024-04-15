@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
 const LeafContainerBox = (props) => {
@@ -35,10 +35,13 @@ const LeafContainerBox = (props) => {
                 <Text
                     fontSize={"16px"}
                     fontWeight={"bold"}
+                    position={"absolute"}
                     color={props.isActive ? "#fff" : "#000"}
+                    justifyContent={"center"}
                 >
                     {props.number}
                 </Text>
+                <Image  src={require('../assets/images/infection.png')} h={50} width={100}/>
             </Box>
         </Box>
     );
