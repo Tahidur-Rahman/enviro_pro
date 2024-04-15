@@ -2,6 +2,9 @@ export const DATA =
     {
         1: {
             name: 'Anthracnose',
+            type:"Fungus",
+            dTime: "Summer & Fall",
+            dRate: "30-35%",
             review:
             {
                 'Chlorothalonil': 80,
@@ -24,6 +27,9 @@ export const DATA =
         },
         2: {
             name: 'Anthracnose',
+            type:"Fungus",
+            dTime: "Summer & Fall",
+            dRate: "30-35%",
             review:
             {
                 'Chlorothalonil': 80,
@@ -46,6 +52,9 @@ export const DATA =
         },
         3: {
             name: 'White Spot',
+            type:"Bacteria",
+            dTime: "Rainy Season",
+            dRate: "42-45%",
             review:
             {
                 'Neem Oil': 30,
@@ -82,7 +91,9 @@ export const DATA =
                 'Bacillus subtilis': 60,
                 'Streptomycin Sulfate': 30,
             },
-
+            type:"Bacteria",
+            dTime: "Rainy Season",
+            dRate: "42-45%",
             regions: ["Srimongol","Rangamati","Bandarban","Panchagar"],
             damage:45,
             health:55
@@ -98,6 +109,9 @@ export const DATA =
                 { thumbnail:require("./images/56/img7.jpeg"),original: require("./images/56/img7.jpeg"), width: 80, height: 100 },
                 { thumbnail:require("./images/56/img8.jpeg"),original: require("./images/56/img8.jpeg"), width: 80, height: 100 },
               ],name: 'Brown Blight',
+              type:"Fungus",
+            dTime: "Winter & Fall",
+            dRate: "40-43%",
             review:
             {
                 'Propiconazole': 80,
@@ -121,6 +135,9 @@ export const DATA =
                 { thumbnail:require("./images/56/img7.jpeg"),original: require("./images/56/img7.jpeg"), width: 80, height: 100 },
                 { thumbnail:require("./images/56/img8.jpeg"),original: require("./images/56/img8.jpeg"), width: 80, height: 100 },
                ],name: 'Brown Blight',
+               type:"Fungus",
+            dTime: "Winter & Fall",
+            dRate: "40-43%",
             review:
             {
                 'Propiconazole': 80,
@@ -143,6 +160,9 @@ export const DATA =
                 { thumbnail:require("./images/78/img6.jpeg"),original: require("./images/78/img2.jpeg"), width: 80, height: 100 },
                 { thumbnail:require("./images/78/img7.jpeg"),original: require("./images/78/img7.jpeg"), width: 80, height: 100 },
                ],name: 'Gray Blight',
+               type:"Fungus & Virus",
+            dTime: "Winter & Spring",
+            dRate: "50-52%",
             review:
             {
                 'Neem Oil': 80,
@@ -165,6 +185,9 @@ export const DATA =
                 { thumbnail:require("./images/78/img6.jpeg"),original: require("./images/78/img2.jpeg"), width: 80, height: 100 },
                 { thumbnail:require("./images/78/img7.jpeg"),original: require("./images/78/img7.jpeg"), width: 80, height: 100 },
                ],name: 'Gray Blight',
+               type:"Fungus & Virus",
+            dTime: "Winter & Spring",
+            dRate: "50-52%",
             review:
             {
                 'Neem Oil': 80,

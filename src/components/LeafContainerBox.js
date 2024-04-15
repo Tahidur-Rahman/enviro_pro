@@ -1,7 +1,7 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
-const LeafContainerBox = (props) => {
+const LeafContainerBox = ({onMouseEnter,onMouseLeave,...props}) => {
     return (
         <Box
             w={props.width}
@@ -15,6 +15,8 @@ const LeafContainerBox = (props) => {
             borderTopRightRadius={props.borderTopRightRadius}
             borderBottomLeftRadius={props.borderBottomLeftRadius}
             borderBottomRightRadius={props.borderBottomRightRadius}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
         >
             <Box
                 w="100%"
@@ -33,7 +35,7 @@ const LeafContainerBox = (props) => {
                 pb={props.pb}
             >
                 <Text
-                    fontSize={"16px"}
+                    fontSize={"14px"}
                     fontWeight={"bold"}
                     position={"absolute"}
                     color={props.isActive ? "#fff" : "#000"}
@@ -41,7 +43,10 @@ const LeafContainerBox = (props) => {
                 >
                     {props.number}
                 </Text>
-                <Image  src={require('../assets/images/infection.png')} h={50} width={100}/>
+                {props.isActive && <Image  src={require('../assets/images/infection.png')} h={50} style={{
+                   marginLeft:props.number %2 == 0?-20:40,
+                   paddingTop:props.number<3?20:0
+                }} width={100}/>}
             </Box>
         </Box>
     );

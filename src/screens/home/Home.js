@@ -14,9 +14,11 @@ import { DATA } from "../../assets/Data";
 const Home = () => {
     const [showContent, setShowContent] = useState(true);
     const [activeTab, setActiveTab] = useState(1);
+    const [hoverTab, setHoverTab] = useState(1);
     const [isOpen, setIsOpen] = useState(false);
-    const handleOpen = () => {
+    const handleOpen = (number) => {
         setIsOpen(true);
+        setHoverTab(number);
     };
     console.log(DATA,activeTab,'DATA[activeTab]?.review')
     
@@ -31,7 +33,7 @@ const Home = () => {
     };
     return (
         <Box h="100vh" display="flex" w="100%">
-          <PopOverContent isOpen={isOpen} handleClose={handleClose}/>
+          <PopOverContent isOpen={isOpen} handleClose={handleClose} data={DATA[hoverTab]}/>
             {/* left container */}
             <Box flex={1} className={`${showContent ? "fade-in" : "fade-out"}`}>
                 <SidebarCardContainer
@@ -60,7 +62,7 @@ const Home = () => {
                 alignItems="center"
                 flexDirection="column"
                 bg={"#fff"}
-                overflow={"hidden"} onMouseEnter={handleOpen} onMouseLeave={handleClose}
+                overflow={"hidden"} 
             >
                 <Text textAlign="center" fontWeight="700" mb={5}>Tea Plant Health Analysis: Leaf Disease Segmentation</Text>
                 <Box
@@ -95,6 +97,7 @@ const Home = () => {
                                 borderTopLeftRadius="100px"
                                 bg={activeTab == 1 ? activeLeftBoxBgColor : ""}
                                 isActive={activeTab == 1 ? true : false}
+                                onMouseEnter={()=>handleOpen(1)} onMouseLeave={handleClose}
                             />
                             <LeafContainerBox
                                 width="21%"
@@ -109,6 +112,7 @@ const Home = () => {
                                 borderTopRightRadius="100px"
                                 bg={activeTab == 2 ? activeLeftBoxBgColor : ""}
                                 isActive={activeTab == 2 ? true : false}
+                                onMouseEnter={()=>handleOpen(2)} onMouseLeave={handleClose}
                             />
                         </Box>
 
@@ -122,6 +126,8 @@ const Home = () => {
                             borderBottomWidth={"1px"}
                         >
                             <LeafContainerBox
+
+                                onMouseEnter={()=>handleOpen(3)} onMouseLeave={handleClose}
                                 width="30%"
                                 height="100%"
                                 onClick={() => onClickLeftBox(3)}
@@ -133,6 +139,8 @@ const Home = () => {
                                 isActive={activeTab == 3 ? true : false}
                             />
                             <LeafContainerBox
+
+                                onMouseEnter={()=>handleOpen(4)} onMouseLeave={handleClose}
                                 width="30%"
                                 height="100%"
                                 onClick={() => onClickLeftBox(4)}
@@ -156,6 +164,8 @@ const Home = () => {
                             borderBottomWidth={"1px"}
                         >
                             <LeafContainerBox
+
+                                onMouseEnter={()=>handleOpen(5)} onMouseLeave={handleClose}
                                 width="40%"
                                 height="100%"
                                 onClick={() => onClickLeftBox(5)}
@@ -167,6 +177,8 @@ const Home = () => {
                                 isActive={activeTab == 5 ? true : false}
                             />
                             <LeafContainerBox
+
+                                onMouseEnter={()=>handleOpen(6)} onMouseLeave={handleClose}
                                 width="40%"
                                 height="100%"
                                 onClick={() => onClickLeftBox(6)}
@@ -188,6 +200,8 @@ const Home = () => {
                             justifyContent={"center"}
                         >
                             <LeafContainerBox
+
+                                onMouseEnter={()=>handleOpen(7)} onMouseLeave={handleClose}
                                 width="38%"
                                 height="100%"
                                 onClick={() => onClickLeftBox(7)}
@@ -199,6 +213,8 @@ const Home = () => {
                                 isActive={activeTab == 7 ? true : false}
                             />
                             <LeafContainerBox
+
+                                onMouseEnter={()=>handleOpen(8)} onMouseLeave={handleClose}
                                 width="38%"
                                 height="100%"
                                 onClick={() => onClickLeftBox(8)}
