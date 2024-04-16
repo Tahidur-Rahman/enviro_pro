@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./home.css";
 import { Box, Popover, List,ListItem, PopoverArrow, PopoverHeader, PopoverBody, Text} from "@chakra-ui/react";
-import PersonCard from "../../components/PersonCard";
 import leafSvg from "../../assets/images/leaf.svg";
 import LeafContainerBox from "../../components/LeafContainerBox";
 import SidebarCardContainer from "../../components/SidebarCardContainer";
@@ -10,6 +9,7 @@ import PopOverContent from "./HoverPopover";
 import Review from "../../components/Review";
 import Album from "../../components/Album";
 import { DATA } from "../../assets/Data";
+import Map from "../../components/Map";
 
 const Home = () => {
     const [showContent, setShowContent] = useState(true);
@@ -237,7 +237,7 @@ const Home = () => {
                 <SidebarCardContainer
                     children={
                         <>
-                            <PersonCard />
+                            <Map regions={DATA[activeTab]?.regions}/>
                         </>
                     }
                 />
